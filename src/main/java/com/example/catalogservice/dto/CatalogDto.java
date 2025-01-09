@@ -1,13 +1,14 @@
 package com.example.catalogservice.dto;
 
-import lombok.Data;
+import lombok.Getter;
+import lombok.ToString;
 
-import java.io.Serializable;
 
-@Data
-public class CatalogDto implements Serializable {
+@Getter
+@ToString
+public class CatalogDto { // implements Serializable {
     private String productId;
-    private Integer quantity;
+    private Integer qty;
     private Integer unitPrice;
     private Integer totalPrice;
 

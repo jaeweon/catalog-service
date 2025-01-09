@@ -1,15 +1,21 @@
 package com.example.catalogservice.entity;
 
-import jakarta.persistence.*;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 import org.hibernate.annotations.ColumnDefault;
+
+import jakarta.persistence.*;
 import org.hibernate.annotations.CreationTimestamp;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.Date;
 
-@Data
+@Getter
+@ToString
 @Entity
 @Table(name = "catalog")
 public class CatalogEntity implements Serializable {
@@ -29,12 +35,7 @@ public class CatalogEntity implements Serializable {
     @Column(nullable = false)
     private Integer unitPrice;
 
-//    @Column(nullable = false, updatable = false)
-//    private Date createdAt;
-//
-//    @PrePersist
-//    protected void onCreate() {
-//        this.createdAt = Date.from(LocalDateTime.now().atZone(java.time.ZoneId.systemDefault()).toInstant());
-//    }
-
+    @Column(name = "created_at")
+    @CreationTimestamp
+    private LocalDateTime createdAt;
 }
